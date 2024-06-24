@@ -1,0 +1,1 @@
+{"rules":{"sample":["*A","*B","XA","XB","X","*a","*b","Bb","Ba","Ab","Aa",""],"substitution":["aX","bX","aX","bX",".","A","B","bB","aB","bA","aA","*"]},"word":"abbab"}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markov Emulator</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<header>
+  <h1>Емулятор нормальних алгоритмів Маркова</h1>
+  <nav>
+    <a href="theory.html">Теоретична довідка</a>
+  </nav>
+</header>
+
+<div id="container">
+
+  <div id="controls">
+    <input type="text" id="workRow" placeholder="Робочий рядок">
+    <div id="buttonContainer">
+      <button id="playButton" title="Запустити алгоритм"><i class="fa fa-play" aria-hidden="true"></i></button>
+      <button id="stepButton" title="Виконати один крок"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+      <button id="startButton" title="Запустити алгоритм до завершення"><i class="fa fa-forward" aria-hidden="true"></i></button>
+      <button id="clearButton" title="Очистити"><i class="fa fa-eraser" aria-hidden="true"></i></button>
+    </div>
+    <div id="speedControl">
+      <label for="speedRange">Швидкість виконання:</label>
+      <input type="range" id="speedRange" min="500" max="2000" value="1500">
+    </div>    
+    <div id="iterationControl">
+      <label for="iterationSelect">Максимальна кількість ітерацій:</label>
+      <select id="iterationSelect">
+        <option value="1000">1000</option>
+        <option value="10000">10000</option>
+        <option value="50000">50000</option>
+        <option value="100000">100000</option>
+        <option value="250000">250000</option>
+        <option value="500000">500000</option>
+        <option value="1000000">1000000</option>
+        <option value="unlimited">Необмежено (Не рекомендовано)</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="display: flex;">
+    <div id="tableControls">
+      <button id="addRowAbove" title="Додати рядок вище"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+      <button id="addRowBelow" title="Додати рядок нижче"><i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+      <button id="deleteRow" title="Видалити рядок"><i class="fa fa-times" aria-hidden="true"></i></button>
+      <button id="moveUp" title="Перемістити рядок вгору"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+      <button id="moveDown" title="Перемістити рядок вниз"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+    </div>
+
+    <div id="tableContainer">
+      <table id="myTable">
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Зразок</th>
+            <th><i class="fa fa-arrow-right" aria-hidden="true"></i></th>
+            <th>Заміна</th>
+            <th>Коментар</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td contenteditable="true"></td>
+            <td><i class="fa fa-arrow-right" aria-hidden="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td contenteditable="true"></td>
+            <td><i class="fa fa-arrow-right" aria-hidden="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td contenteditable="true"></td>
+            <td><i class="fa fa-arrow-right" aria-hidden="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div id="graphContainer">
+      <button id="plotGraphButton">Побудувати графік складності</button>
+      <div id="graphControls" style="display: none;">
+        <select id="functionSelect">
+          <option value="none">Не обрано</option>
+          <option value="linear">Лінійна</option>
+          <option value="quadratic">Квадратична</option>
+          <option value="cubic">Кубічна</option>
+          <option value="exponential">Експоненціальна</option>
+          <option value="logarithmic">Логарифмічна</option>
+        </select>
+        <span id="equationText"></span>
+      </div>
+      <canvas id="chart"></canvas>
+    </div>
+  </div>
+
+  <div id="fileControl">
+    <button id="exportButton">Експортувати</button>
+    <button id="importButton">Імпортувати</button>
+    <button id="logButton">Логування</button>
+    <input type="file" id="importFile" style="display: none;">
+  </div>
+
+  <div id="logContainer" style="display:none;">
+    <h3>Логи</h3>
+    <div id="logContent"></div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/regression/2.0.1/regression.min.js"></script>
+<script src="main.js"></script>
+<script src="markovAlgorithm.js"></script>
+<script src="graph.js"></script>
+
+</body>
+</html>

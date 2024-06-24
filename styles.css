@@ -1,0 +1,218 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top,#5569bb, #A8D0E6);
+    font-size: 18px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    background-color: #2a3d86;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 18px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 10px;
+    font-size: 30px;
+}
+
+header nav a {
+    color: #ffd4d4;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+#myTable {
+    background: #ffffff;
+}
+
+#container {
+    width: 90%;
+    background: #ffd4d4;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тінь для контейнера */
+    padding: 20px; /* Відступи всередині контейнера */
+    border-radius: 28px; /* Закруглені кути */
+    min-height: 85vh;
+}
+
+#controls {
+    margin-bottom: 20px;
+}
+
+#workRow {
+    width: calc(100% - 22px); /* Adjust width considering padding */
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Границя */
+    border-radius: 4px; /* Закруглені кути */
+    font-size: 20px; /* Збільшення розміру шрифту для робочого рядка */
+}
+
+#buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#buttonContainer button {
+    width: 50px;
+    font-size: 16px;
+}
+
+#fileControl {
+    margin-top: 20px;
+}
+
+#fileControl button{
+    font-size: 16px;
+}
+
+#plotGraphButton {
+    font-size: 16px;
+}
+
+#iterationSelect {
+    font-size: 16px;
+}
+
+#speedControl {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#speedRange {
+    margin-left: 10px;
+    width: 200px;
+}
+
+#functionSelect{
+    font-size: 16px;
+}
+
+#tableControls {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+#tableControls button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #2a3d86; /* Синій фон для кнопок */
+    color: #fff; /* Білий текст */
+    border-radius: 4px; /* Закруглені кути */
+    cursor: pointer; /* Курсор у вигляді руки */
+}
+
+#tableControls button:hover {
+    background-color: rgb(0, 34, 71);
+}
+
+#tableContainer {
+    flex: 1;
+    overflow-y: auto;
+    height: calc(20px + 18*33px); /* Approximate height to fit 15 rows */
+    margin-right: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 18px; /* Збільшення розміру шрифту для таблиці */
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: #2a3d86; /* Синій фон для кнопок */
+    color: #fff; /* Білий текст */
+    border-radius: 4px; /* Закруглені кути */
+    cursor: pointer; /* Курсор у вигляді руки */
+}
+
+button:hover {
+    background-color: rgb(0, 34, 71); /* Трохи темніший синій при наведенні */
+}
+
+#graphContainer {
+    padding-right: 1%;
+    padding-left: 1%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+}
+
+#graphContainer button {
+    margin-bottom: 20px;
+}
+
+.white-background {
+    background-color: white;
+}
+
+#chart {
+    width: 100%;
+    height: 400px;
+}
+
+.highlight {
+    background-color: #d4edda; /* Світло-зелений колір */
+}
+
+#iterationControl {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#iterationControl label {
+    margin-right: 10px;
+}
+
+#logContainer {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  #logContent p {
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin: 0;
+    padding: 5px 0;
+  }
+  
+  .changed {
+    color: red;
+    font-weight: bold;
+  }
