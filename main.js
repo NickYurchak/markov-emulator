@@ -8,8 +8,6 @@ $(document).ready(function() {
     var newRow = '<tr><td></td><td contenteditable="true"></td><td><i class="fa fa-arrow-right" aria-hidden="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>';
     if (selectedRow.length) {
         selectedRow.before(newRow);
-    } else {
-        alert('Виберіть рядок, щоб додати новий рядок вище нього.');
     }
     updateRowNumbers();
 });
@@ -19,19 +17,20 @@ $('#addRowBelow').on('click', function() {
     var newRow = '<tr><td></td><td contenteditable="true"></td><td><i class="fa fa-arrow-right" aria-hidden="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>';
     if (selectedRow.length) {
         selectedRow.after(newRow);
-    } else {
-        alert('Виберіть рядок, щоб додати новий рядок нижче нього.');
     }
     updateRowNumbers();
 });
 
-  $('#deleteRow').on('click', function() {
-    var selectedRow = $('#myTable tbody .selected');
-    if (selectedRow.length) {
-      selectedRow.remove();
-      updateRowNumbers();
-    }
-  });
+$('#deleteRow').on('click', function() {
+  var selectedRow = $('#myTable tbody .selected');
+  var rowCount = $('#myTable tbody tr').length;
+  if (selectedRow.length) {
+      if (rowCount > 1) {
+          selectedRow.remove();
+          updateRowNumbers();
+      }
+  }
+});
 
   $('#moveUp').on('click', function() {
     var selectedRow = $('#myTable tbody .selected');
